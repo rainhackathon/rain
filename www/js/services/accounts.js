@@ -134,4 +134,8 @@ angular.module('starter.services.accounts', [])
         self.getCurrent = function () {
             return Auth.getUser();
         };
+        
+        self.getInfo = function () {
+        	return $http.get(API + '/accounts/users/', {});
+        }
     });
