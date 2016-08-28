@@ -161,8 +161,8 @@ angular.module('starter', ['ionic',
                         	   })
 
 
-                        	   .state('app.MyQRCode', {
-                        		   url: '/MyQRCode',
+                        	   .state('app.receive', {
+                        		   url: '/receive',
                         		   views: {
                         			   'menuContent': {
                         				   templateUrl: 'templates/MyQRCode.html',
