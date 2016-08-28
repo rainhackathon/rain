@@ -135,6 +135,9 @@ angular.module('starter', ['ionic',
                         templateUrl: 'templates/tip/scan_tip.html',
                         controller: 'ScanTipCtrl'
                     }
+                },
+                params: {
+                    email: null
                 }
             })
 
@@ -146,6 +149,9 @@ angular.module('starter', ['ionic',
                         templateUrl: 'templates/tip/create_tip.html',
                         controller: 'CreateTipCtrl'
                     }
+                },
+                params: {
+                    email: null
                 }
             })
 
@@ -159,7 +165,6 @@ angular.module('starter', ['ionic',
                     }
                 }
             })
-
 
             .state('app.receive', {
                 url: '/receive',

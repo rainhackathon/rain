@@ -1,6 +1,6 @@
 angular.module('starter.controllers.tips', [])
 
-    .controller('ScanTipCtrl', function ($scope) {
+    .controller('ScanTipCtrl', function ($scope, $state) {
         'use strict';
         $scope.data = {};
 
@@ -11,7 +11,7 @@ angular.module('starter.controllers.tips', [])
                     console.log(result);
 
                     $state.go('app.create_tip', {
-                        email: result.text
+                        email: 'helghardt@gmail.com'
                     });
 
                     //alert("We got a barcode\n" +
@@ -26,15 +26,12 @@ angular.module('starter.controllers.tips', [])
         }
     })
 
-    .controller('CreateTipCtrl', function ($scope) {
+    .controller('CreateTipCtrl', function ($scope, $stateParams) {
         'use strict';
         $scope.data = {};
-
-
+        $scope.email = $stateParams.email;
     })
 
     .controller('ConfirmTipCtrl', function ($scope) {
         'use strict';
-        $scope.email = $stateParams.email;
-
     });
