@@ -15,7 +15,7 @@ angular.module('starter', ['ionic',
     'starter.controllers.deposits',
     'starter.services.accounts',
     'starter.services.transactions'])
-  
+
   .constant('API', 'https://rehive.com/api/1')
   .constant('REFRESH_INTERVAL', 3000)
 
@@ -172,8 +172,8 @@ angular.module('starter', ['ionic',
         url: '/create_tip',
         views: {
           'menuContent': {
-            templateUrl: 'templates/tip/create_tip.html',
-            controller: 'CreateTipCtrl'
+            templateUrl: 'templates/tip/flip_tip.html',
+            controller: 'CardsCtrl'
           }
         },
         params: {

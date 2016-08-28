@@ -20,11 +20,12 @@ angular.module('starter.services.transactions', [])
             return $http.get(API + '/transactions/' + txId + '/');
         };
 
-        self.send = function (amount, note, to) {
+        self.send = function (amount, to, note, metadata) {
             return $http.post(API + '/transactions/send/', {
                 amount: amount,
+                recipient: to,
                 note: note,
-                recipient: to
+                metadata: metadata
             });
         };
 

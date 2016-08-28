@@ -16,8 +16,9 @@ angular.module('starter.controllers', [])
 	})
 })
 
-.controller('CardsCtrl', function($scope, TDCardDelegate) {
+.controller('CardsCtrl', function($scope, TDCardDelegate, Transaction) {
   console.log('CARDS CTRL');
+  $scope.email = $stateParams.email;
   var cardTypes = [
     { image: 'img/dollar.jpg' },
     { image: 'img/dollar.jpg' },
@@ -31,11 +32,13 @@ angular.module('starter.controllers', [])
     var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
     newCard.id = Math.random();
     $scope.cards.push(angular.extend({}, newCard));
-  }
+  };
 
   $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);
     console.log('Hello');
+    var metadata = {'type': 'tip'};
+    Transaction.send(25, $scope.email, '', metadata);
     $scope.addCard()
   };
 })
