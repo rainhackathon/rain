@@ -1,0 +1,25 @@
+<ion-view view-title="Add Amount">
+
+    <ion-content>
+        <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
+        <div class="list-transactions">
+            <div class="block">
+                <div ng-repeat="item in items">
+                    <a ui-sref="app.confirm_deposit({amount: item.amount})">
+                        <div class="item">
+
+                            <div class="align-left">
+                                <h3>$ {{ item.amount }}</h3>
+                            </div>
+
+                            <div class="align-right">
+                                <i class="ion-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+</ion-view>

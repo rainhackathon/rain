@@ -5,13 +5,16 @@
 //the 2nd parameter is an array of 'requires'
 //'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic',
-//                         'ngCordova',
                            'ngMessages',
                            'starter.controllers',
                            'starter.controllers.accounts',
                            'starter.controllers.transactions',
+                           'starter.controllers.menu',
+                           'starter.controllers.tips',
+                           'starter.controllers.deposits',
                            'starter.services.accounts',
                            'starter.services.transactions'])
+
 
                            .constant('API', 'https://rehive.com/api/1')
                            .constant('REFRESH_INTERVAL', 3000)
@@ -52,23 +55,111 @@ angular.module('starter', ['ionic',
                         		   controller: 'LoginCtrl'
                         	   })
 
-                        	   // Home
-                        	   .state('app.home', {
-                        		   url: '/home',
+                        	   // Menu
+                        	   .state('app', {
+                        		   url: '/app',
+                        		   abstract: true,
+                        		   templateUrl: 'templates/elements/menu.html',
+                        		   controller: 'MenuCtrl'
+                        	   })
+
+                        	   // Add Credit Card
+                        	   .state('app.add_credit_card', {
+                        		   url: '/add_credit_card',
                         		   views: {
                         			   'menuContent': {
-                        				   templateUrl: 'templates/home/index.html',
-                        				   controller: 'TransactionsCtrl'
+                        				   templateUrl: 'templates/deposit/add_credit_card.html',
+                        				   controller: 'AddCreditCardCtrl'
                         			   }
                         		   }
                         	   })
 
-                        	   .state('app', {
-                        		   url: '/app',
-                        		   abstract: true,
-                        		   templateUrl: 'templates/menu.html',
-                        		   controller: 'AppCtrl'
+                        	   // Choose Credit Card
+                        	   .state('app.choose_credit_card', {
+                        		   url: '/choose_credit_card',
+                        		   views: {
+                        			   'menuContent': {
+                        				   templateUrl: 'templates/deposit/choose_credit_card.html',
+                        				   controller: 'ChooseCreditCardCtrl'
+                        			   }
+                        		   }
                         	   })
+
+                        	   // Create deposit
+                        	   .state('app.create_deposit', {
+                        		   url: '/create_deposit',
+                        		   views: {
+                        			   'menuContent': {
+                        				   templateUrl: 'templates/deposit/create_deposit.html',
+                        				   controller: 'CreateDepositCtrl'
+                        			   }
+                        		   },
+                        		   params: {
+                        			   amount: null
+                        		   }
+                        	   })
+
+                        	   // Confirm deposit
+                        	   .state('app.confirm_deposit', {
+                        		   url: '/confirm_deposit',
+                        		   views: {
+                        			   'menuContent': {
+                        				   templateUrl: 'templates/deposit/confirm_deposit.html',
+                        				   controller: 'ConfirmDepositCtrl'
+                        			   }
+                        		   },
+                        		   params: {
+                        			   amount: null
+                        		   }
+                        	   })
+
+                        	   // Success deposit
+                        	   .state('app.success_deposit', {
+                        		   url: '/success_deposit',
+                        		   views: {
+                        			   'menuContent': {
+                        				   templateUrl: 'templates/deposit/success_deposit.html',
+                        				   controller: 'SuccessDepositCtrl'
+                        			   }
+                        		   },
+                        		   params: {
+                        			   amount: null
+                        		   }
+                        	   })
+
+                        	   // Scan Tip
+                        	   .state('app.scan_tip', {
+                        		   url: '/scan_tip',
+                        		   views: {
+                        			   'menuContent': {
+                        				   templateUrl: 'templates/tip/scan_tip.html',
+                        				   controller: 'ScanTipCtrl'
+                        			   }
+                        		   }
+                        	   })
+
+                        	   // Create Tip
+                        	   .state('app.create_tip', {
+                        		   url: '/create_tip',
+                        		   views: {
+                        			   'menuContent': {
+                        				   templateUrl: 'templates/tip/create_tip.html',
+                        				   controller: 'CreateTipCtrl'
+                        			   }
+                        		   }
+                        	   })
+
+                        	   // Confirm Tip
+                        	   .state('app.confirm_tip', {
+                        		   url: '/confirm_tip',
+                        		   views: {
+                        			   'menuContent': {
+                        				   templateUrl: 'templates/tip/confirm_tip.html',
+                        				   controller: 'ConfirmTipCtrl'
+                        			   }
+                        		   }
+                        	   })
+
 
                         	   .state('app.MyQRCode', {
                         		   url: '/MyQRCode',
@@ -78,9 +169,10 @@ angular.module('starter', ['ionic',
                         				   controller: 'MyQRCodeCtrl'
                         			   }
                         		   }
-                        	   })
-                        	   
-                        	   ;
+                        	   });
+
                         	   // if none of the above states are matched, use this as the fallback
-                        	   $urlRouterProvider.otherwise('/app/home');
+                        	   $urlRouterProvider.otherwise('/app/scan_tip');
                            });
+
+>>>>>>> 36cc6e3610f24cdd0fe8d5facbf919cf4781f823

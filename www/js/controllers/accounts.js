@@ -44,7 +44,7 @@ angular.module('starter.controllers.accounts', [])
                     .then(function (res) {
                     if (res.status === 201) {
                         $ionicLoading.hide();
-                        $state.go('app.home');
+                        $state.go('app.scan_tip');
                     } else {
                         $ionicPopup.alert({title: "Error", template: res.data.message});
                     }
@@ -68,7 +68,7 @@ angular.module('starter.controllers.accounts', [])
                     $ionicLoading.hide();
 
                     if (res.status === 200) {
-                        $state.go('app.home');
+                        $state.go('app.scan_tip');
                     } else {
                         $ionicPopup.alert({title: "Error", template: res.data.message});
                     }
