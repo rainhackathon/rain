@@ -1,10 +1,11 @@
-<ion-view view-title="My QR Code">
-  <ion-content>
-    <h1>My QR Code</h1>
-    
-    	<ion-item>
-        <h2>{{email}}</h2>
-      	</ion-item>
-    
-  </ion-content>
-</ion-view>
+<ion-view view-title="My QR Code"> <ion-content>
+
+<ion-item>
+<center>
+	<img ng-src="{{qrUrl}}" alt="My QR Code" height="256" width="256">
+</center>
+</ion-item> <ion-item>
+<center>
+	<font size="4">{{email}}</font>
+</center>
+</ion-item> </ion-content> </ion-view>

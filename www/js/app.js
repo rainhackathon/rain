@@ -5,6 +5,7 @@
 //the 2nd parameter is an array of 'requires'
 //'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic',
+//                         'ngCordova',
                            'ngMessages',
                            'starter.controllers',
                            'starter.controllers.accounts',
@@ -69,16 +70,16 @@ angular.module('starter', ['ionic',
                         		   controller: 'AppCtrl'
                         	   })
 
-//                        	   .state('app.MyQRCode', {
-//                        		   url: '/MyQRCode',
-//                        		   views: {
-//                        			   'menuContent': {
-//                        				   templateUrl: 'templates/MyQRCode.html',
-//                        				   controller: 'MyQRCodeCtrl'
-//                        			   }
-//                        		   }
-//                        	   })
-
+                        	   .state('app.MyQRCode', {
+                        		   url: '/MyQRCode',
+                        		   views: {
+                        			   'menuContent': {
+                        				   templateUrl: 'templates/MyQRCode.html',
+                        				   controller: 'MyQRCodeCtrl'
+                        			   }
+                        		   }
+                        	   })
+                        	   
                         	   ;
                         	   // if none of the above states are matched, use this as the fallback
                         	   $urlRouterProvider.otherwise('/app/home');

@@ -6,9 +6,16 @@ angular.module('starter.controllers', [])
 
 .controller('MyQRCodeCtrl', function($scope, User) {
 	User.getInfo().then(function(res) {
-		console.log(res.data.data.email)
 		$scope.email = res.data.data.email
+		
+		var qrUrl = 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=' 
+			+ $scope.email 
+			+ '&choe=UTF-8';
+		
+		$scope.qrUrl = qrUrl;
 	})
-});
+})
+
+;
 
 
