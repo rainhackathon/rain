@@ -18,6 +18,7 @@ angular.module('starter', ['ionic',
 
     .constant('API', 'https://rehive.com/api/1')
     .constant('REFRESH_INTERVAL', 3000)
+    .constant('COMPANY', 'rain_test')
 
     .directive('noScroll', function ($document) {
 

@@ -1,6 +1,6 @@
 angular.module('starter.controllers.accounts', [])
 
-    .controller('LoginCtrl', function ($scope, $ionicModal, $state, $ionicLoading, $rootScope, User, $ionicPopup) {
+    .controller('LoginCtrl', function ($scope, $ionicModal, $state, $ionicLoading, $rootScope, User, $ionicPopup, COMPANY) {
         'use strict';
 
         $ionicModal.fromTemplateUrl('templates/accounts/signup.html', {
@@ -40,7 +40,7 @@ angular.module('starter.controllers.accounts', [])
                     template: 'Signing Up...'
                 });
 
-                User.register(form.first_name.$viewValue, form.email.$viewValue, form.company_id.$viewValue, form.password1.$viewValue, form.password2.$viewValue)
+                User.register(form.first_name.$viewValue, form.email.$viewValue, COMPANY, form.password1.$viewValue, form.password2.$viewValue)
                     .then(function (res) {
                     if (res.status === 201) {
                         $ionicLoading.hide();
@@ -63,8 +63,8 @@ angular.module('starter.controllers.accounts', [])
                 $ionicLoading.show({
                     template: 'Logging In...'
                 });
-
-                User.login(form.email.$viewValue, form.company_id.$viewValue, form.password.$viewValue).then(function (res) {
+                console.log(COMPANY)
+                User.login(form.email.$viewValue, COMPANY, form.password.$viewValue).then(function (res) {
                     $ionicLoading.hide();
 
                     if (res.status === 200) {
@@ -87,7 +87,7 @@ angular.module('starter.controllers.accounts', [])
 
                 $scope.CloseModalForgot();
 
-                User.resetPassword(form.email.$viewValue, form.company_id.$viewValue).then(function (res) {
+                User.resetPassword(form.email.$viewValue, COMPANY).then(function (res) {
                     $ionicLoading.hide();
 
                     if (res.status === 200) {
