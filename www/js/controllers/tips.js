@@ -6,28 +6,24 @@ angular.module('starter.controllers.tips', [])
 
         $scope.scanQr = function () {
 
-            $state.go('app.flip_tip', {
-                        email: 'helghardt@gmail.com'
+            cordova.plugins.barcodeScanner.scan(
+                function (result) {
+
+                    console.log(result);
+
+                    $state.go('app.flip_tip', {
+                        email: result.text
                     });
 
-            //cordova.plugins.barcodeScanner.scan(
-            //    function (result) {
-            //
-            //        console.log(result);
-            //
-            //        $state.go('app.flip_tip', {
-            //            email: 'helghardt@gmail.com'
-            //        });
-            //
-            //        //alert("We got a barcode\n" +
-            //        //    "Result: " + result.text + "\n" +
-            //        //    "Format: " + result.format + "\n" +
-            //        //    "Cancelled: " + result.cancelled);
-            //    },
-            //    function (error) {
-            //        alert("Scanning failed: " + error);
-            //    }
-            //);
+                    if (result.cancelled == 1) {
+                         $state.go('app.scan_tip')
+                    }
+
+                },
+                function (error) {
+                    alert("Scanning failed: " + error);
+                }
+            );
         }
     })
 
@@ -57,7 +53,8 @@ angular.module('starter.controllers.tips', [])
 
         $scope.cardDestroyed = function (index) {
             var metadata = {'type': 'tip'};
-            //Transaction.send(25, $scope.email, '', metadata);
+            Transaction.send(25, $scope.email, '', metadata);
+            console.log('SENT!!!!');
             $scope.addCard()
         };
     })
