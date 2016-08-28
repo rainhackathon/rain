@@ -167,25 +167,13 @@ angular.module('starter', ['ionic',
                 }
             })
 
-
-            // Flip Tip
-            .state('app.flip_tip', {
-                url: '/flip_tip',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/tip/flip_tip.html',
-                        controller: 'CardsCtrl'
-                    }
-                }
-            })
-
             // Create Tip
             .state('app.create_tip', {
                 url: '/create_tip',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/tip/create_tip.html',
-                        controller: 'CreateTipCtrl'
+                        templateUrl: 'templates/tip/flip_tip.html',
+                        controller: 'CardsCtrl'
                     }
                 },
                 params: {
