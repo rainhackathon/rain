@@ -15,8 +15,7 @@ angular.module('starter', ['ionic',
     'starter.controllers.deposits',
     'starter.services.accounts',
     'starter.services.transactions'])
-
-
+  
   .constant('API', 'https://rehive.com/api/1')
   .constant('REFRESH_INTERVAL', 3000)
 
@@ -33,10 +32,11 @@ angular.module('starter', ['ionic',
     }
   })
 
+
   .config(function ($httpProvider, $ionicConfigProvider, $compileProvider) {
     'use strict';
     //Switch off caching:
-    $ionicConfigProvider.views.maxCache(0);
+    //$ionicConfigProvider.views.maxCache(0);
     //Force buttons to bottom of screen:
     $ionicConfigProvider.tabs.position('bottom');
     //Insert JWT token into all api requests:
@@ -147,10 +147,14 @@ angular.module('starter', ['ionic',
         views: {
           'menuContent': {
             templateUrl: 'templates/tip/scan_tip.html',
-            controller: 'CardsCtrl'
+            controller: 'ScanTipCtrl'
           }
+        },
+        params: {
+          email: null
         }
       })
+
 
       // Flip Tip
       .state('app.flip_tip', {
@@ -171,6 +175,9 @@ angular.module('starter', ['ionic',
             templateUrl: 'templates/tip/create_tip.html',
             controller: 'CreateTipCtrl'
           }
+        },
+        params: {
+          email: null
         }
       })
 
@@ -185,7 +192,6 @@ angular.module('starter', ['ionic',
         }
       })
 
-
       .state('app.receive', {
         url: '/receive',
         views: {
@@ -199,4 +205,3 @@ angular.module('starter', ['ionic',
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/scan_tip');
   });
-

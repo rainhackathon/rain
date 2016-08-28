@@ -1,19 +1,37 @@
 angular.module('starter.controllers.tips', [])
 
-    .controller('ScanTipCtrl', function ($scope) {
+    .controller('ScanTipCtrl', function ($scope, $state) {
         'use strict';
         $scope.data = {};
-        $scope.actions = "Scan QR";
+
+        $scope.scanQr = function () {
+            cordova.plugins.barcodeScanner.scan(
+                function (result) {
+
+                    console.log(result);
+
+                    $state.go('app.create_tip', {
+                        email: 'helghardt@gmail.com'
+                    });
+
+                    //alert("We got a barcode\n" +
+                    //    "Result: " + result.text + "\n" +
+                    //    "Format: " + result.format + "\n" +
+                    //    "Cancelled: " + result.cancelled);
+                },
+                function (error) {
+                    alert("Scanning failed: " + error);
+                }
+            );
+        }
     })
 
-    .controller('CreateTipCtrl', function ($scope) {
+    .controller('CreateTipCtrl', function ($scope, $stateParams) {
         'use strict';
         $scope.data = {};
-        $scope.actions = "Create Tip";
+        $scope.email = $stateParams.email;
     })
 
     .controller('ConfirmTipCtrl', function ($scope) {
         'use strict';
-        $scope.data = {};
-        $scope.actions = "Confirm Tip";
     });
