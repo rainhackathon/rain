@@ -37,7 +37,7 @@ angular.module('starter', ['ionic',
     .config(function ($httpProvider, $ionicConfigProvider, $compileProvider) {
         'use strict';
         //Switch off caching:
-        //$ionicConfigProvider.views.maxCache(0);
+        $ionicConfigProvider.views.maxCache(0);
         //Force buttons to bottom of screen:
         $ionicConfigProvider.tabs.position('bottom');
         //Insert JWT token into all api requests:
