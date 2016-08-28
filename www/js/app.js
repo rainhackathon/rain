@@ -170,6 +170,7 @@ angular.module('starter', ['ionic',
             // Flip Tip
             .state('app.flip_tip', {
                 url: '/flip_tip',
+                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/tip/flip_tip.html',
