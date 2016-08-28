@@ -80,7 +80,6 @@ angular.module('starter.services.accounts', [])
             $window.localStorage.removeItem('jwtToken');
             $window.localStorage.removeItem('user');
             $window.localStorage.removeItem('myTransactions');
-            $window.localStorage.removeItem('wiCode');
         };
     })
 
