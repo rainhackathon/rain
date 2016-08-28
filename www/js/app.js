@@ -167,28 +167,17 @@ angular.module('starter', ['ionic',
                 }
             })
 
-            // Create Tip
-            .state('app.create_tip', {
-                url: '/create_tip',
+            // Flip Tip
+            .state('app.flip_tip', {
+                url: '/flip_tip',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/tip/flip_tip.html',
-                        controller: 'CardsCtrl'
+                        controller: 'FlipTipCtrl'
                     }
                 },
                 params: {
                     email: null
-                }
-            })
-
-            // Confirm Tip
-            .state('app.confirm_tip', {
-                url: '/confirm_tip',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/tip/confirm_tip.html',
-                        controller: 'ConfirmTipCtrl'
-                    }
                 }
             })
 
