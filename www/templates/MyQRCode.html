@@ -1,11 +1,22 @@
-<ion-view cache-view="true" view-title="My QR Code"> <ion-content>
+<ion-view cache-view="true" view-title="My QR Code">
+    <ion-content>
 
-<ion-item>
-<center>
-	<img ng-src="{{qrUrl}}" alt="My QR Code" height="256" width="256">
-</center>
-</ion-item> <ion-item>
-<center>
-	<font size="4">{{email}}</font>
-</center>
-</ion-item> </ion-content> </ion-view>
+        <ion-item>
+            <center>
+                <img ng-src="{{ qrUrl }}" alt="My QR Code" height="256" width="256">
+            </center>
+
+        </ion-item>
+        <center>
+            <audio controls>
+                <source src="/audio/money.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </center>
+        <ion-item>
+            <center>
+                <font size="4">{{ email }}</font>
+            </center>
+        </ion-item>
+    </ion-content>
+</ion-view>

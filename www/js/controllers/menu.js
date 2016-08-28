@@ -3,6 +3,7 @@ angular.module('starter.controllers.menu', [])
     .controller('MenuCtrl', function ($scope, $state, $http, $window, $ionicModal, $ionicLoading, Auth, Balance, Conversions) {
 
         $scope.refreshBalance = function () {
+
             var getBalance = Balance.get();
             getBalance.success(
                 function (res) {

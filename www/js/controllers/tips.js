@@ -52,10 +52,14 @@ angular.module('starter.controllers.tips', [])
         };
 
         $scope.cardDestroyed = function (index) {
-            var metadata = {'type': 'tip'};
+            var metadata = {'type': 'tip', 'description': 'Tip'};
             Transaction.send(25, $scope.email, '', metadata);
             console.log('SENT!!!!');
-            $scope.addCard()
+            $scope.addCard();
+
+            var audio = new Audio('audio/money.mp3');
+            audio.play();
+
         };
     })
 

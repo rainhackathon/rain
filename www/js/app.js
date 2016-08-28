@@ -86,7 +86,8 @@ angular.module('starter', ['ionic',
                         templateUrl: 'templates/transactions/index.html',
                         controller: 'TransactionsCtrl'
                     }
-                }
+                },
+                cache: false
             })
 
             // Add Credit Card
