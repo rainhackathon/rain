@@ -20,11 +20,18 @@ angular.module('starter.services.transactions', [])
             return $http.get(API + '/transactions/' + txId + '/');
         };
 
-        self.create = function (amount, note, to) {
+        self.send = function (amount, note, to) {
             return $http.post(API + '/transactions/send/', {
                 amount: amount,
                 note: note,
                 recipient: to
+            });
+        };
+
+        self.deposit = function (amount, reference) {
+            return $http.post(API + '/transactions/deposit/', {
+                amount: amount,
+                reference: reference
             });
         };
     })

@@ -1,5 +1,18 @@
-<ion-view view-title="Playlist">
-  <ion-content>
-    <h1>Confirm Deposit</h1>
-  </ion-content>
-</ion-view>
+<ion--view view-title="Confirm Payment">
+    <ion-content class="padding">
+        <div class="row">
+            <div class="col text-center">
+                <h4>You are loading $ {{ amount }}.</h4>
+            </div>
+        </div>
+    </ion-content>
+
+    <div class="row">
+        <a class="col col-50 high-footer bar bar-footer cancel" menu-close href="#/app/scan_tip">
+            <h1 class="title">Cancel</h1>
+        </a>
+        <button class="col col-50 col-offset-50 high-footer bar bar-footer" ng-click="submit(amount, note, to)">
+            <h1 class="title">Confirm</h1>
+        </button>
+    </div>
+</ion--view>

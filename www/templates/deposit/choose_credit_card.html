@@ -1,25 +1,23 @@
-<ion-view view-title="Add Amount">
-
+<ion-view view-title="Choose Credit Card">
     <ion-content>
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
         <div class="list-transactions">
             <div class="block">
                 <div ng-repeat="item in items">
-                    <a ui-sref="app.confirm_deposit({amount: item.amount})">
-                        <div class="item">
+                    <a ui-sref="app.create_deposit">
+                        <div class="item item-avatar item-icon-left">
+                            <i class="icon ion-ios-circle-outline"></i>
 
                             <div class="align-left">
-                                <h3>$ {{ item.amount }}</h3>
-                            </div>
-
-                            <div class="align-right">
-                                <i class="ion-chevron-right"></i>
+                                <h3>xxxx xxxx xxxx {{ item.number }}</h3>
                             </div>
                         </div>
                     </a>
                 </div>
+                <a class="item" ui-sref="app.add_credit_card">
+                    Add another card
+                </a>
             </div>
         </div>
     </ion-content>
-
 </ion-view>

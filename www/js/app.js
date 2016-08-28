@@ -60,8 +60,72 @@ angular.module('starter', ['ionic',
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: 'templates/menu.html',
+                templateUrl: 'templates/elements/menu.html',
                 controller: 'MenuCtrl'
+            })
+
+            // Add Credit Card
+            .state('app.add_credit_card', {
+                url: '/add_credit_card',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/deposit/add_credit_card.html',
+                        controller: 'AddCreditCardCtrl'
+                    }
+                }
+            })
+
+            // Choose Credit Card
+            .state('app.choose_credit_card', {
+                url: '/choose_credit_card',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/deposit/choose_credit_card.html',
+                        controller: 'ChooseCreditCardCtrl'
+                    }
+                }
+            })
+
+            // Create deposit
+            .state('app.create_deposit', {
+                url: '/create_deposit',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/deposit/create_deposit.html',
+                        controller: 'CreateDepositCtrl'
+                    }
+                },
+                params: {
+                    amount: null
+                }
+            })
+
+            // Confirm deposit
+            .state('app.confirm_deposit', {
+                url: '/confirm_deposit',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/deposit/confirm_deposit.html',
+                        controller: 'ConfirmDepositCtrl'
+                    }
+                },
+                params: {
+                    amount: null
+                }
+            })
+
+            // Success deposit
+            .state('app.success_deposit', {
+                url: '/success_deposit',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/deposit/success_deposit.html',
+                        controller: 'SuccessDepositCtrl'
+                    }
+                },
+                params: {
+                    amount: null
+                }
             })
 
             // Scan Tip
@@ -86,7 +150,7 @@ angular.module('starter', ['ionic',
                 }
             })
 
-            // Create Tip
+            // Confirm Tip
             .state('app.confirm_tip', {
                 url: '/confirm_tip',
                 views: {
