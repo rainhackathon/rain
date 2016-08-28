@@ -161,8 +161,8 @@ angular.module('starter', ['ionic',
                         	   })
 
 
-                        	   .state('app.MyQRCode', {
-                        		   url: '/MyQRCode',
+                        	   .state('app.receive', {
+                        		   url: '/receive',
                         		   views: {
                         			   'menuContent': {
                         				   templateUrl: 'templates/MyQRCode.html',
@@ -174,5 +174,3 @@ angular.module('starter', ['ionic',
                         	   // if none of the above states are matched, use this as the fallback
                         	   $urlRouterProvider.otherwise('/app/scan_tip');
                            });
-
->>>>>>> 36cc6e3610f24cdd0fe8d5facbf919cf4781f823
