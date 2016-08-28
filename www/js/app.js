@@ -175,4 +175,3 @@ angular.module('starter', ['ionic',
                         	   $urlRouterProvider.otherwise('/app/scan_tip');
                            });
 
->>>>>>> 36cc6e3610f24cdd0fe8d5facbf919cf4781f823
