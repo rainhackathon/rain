@@ -28,7 +28,7 @@ angular.module('starter.services.accounts', [])
             },
             //Redirect to login if unauthorised
             responseError: function (res) {
-                if (res.status === 401 || res.status === 403) {
+                if (res.status === 403) {
                     Auth.logout();
                     $location.path('/login');
                 }
