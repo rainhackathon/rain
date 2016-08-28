@@ -53,4 +53,13 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})
+
+.controller('MyQRCodeCtrl', function($scope, User) {
+	User.getInfo().then(function(res) {
+		console.log(res.data.data.email)
+		$scope.email = res.data.data.email
+	})
+})
+
+;

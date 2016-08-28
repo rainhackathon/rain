@@ -101,7 +101,19 @@ angular.module('starter', ['ionic',
               controller: 'PlaylistCtrl'
             }
           }
-        });
+        })
+        
+        .state('app.MyQRCode', {
+          url: '/MyQRCode',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/MyQRCode.html',
+              controller: 'MyQRCodeCtrl'
+            }
+          }
+        })
+        
+        ;
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/playlists');
   });
