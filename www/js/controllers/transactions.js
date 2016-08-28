@@ -64,4 +64,10 @@ angular.module('starter.controllers.transactions', [])
 
             $scope.refreshData();
         });
-    });
+    })
+
+    .controller('WithdrawCtrl', function () {
+        'use strict';
+    })
+
+;

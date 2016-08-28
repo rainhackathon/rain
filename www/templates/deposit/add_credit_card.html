@@ -1,5 +1,28 @@
-<ion-view view-title="">
-  <ion-content class="padding dashboard">
-    <h1>Add Credit Card</h1>
-  </ion-content>
+<ion-view view-title="Add Credit Card">
+    <div>
+        <form name="sendToForm" method="post" novalidate>
+            <ion-content>
+                <div class="item item-input item-stacked-label">
+                    <input name="credit_card" placeholder="Credit Card Number">
+                </div>
+                <div class="item item-input item-stacked-label">
+                    <input name="month" placeholder="Expiry Month">
+                </div>
+                <div class="item item-input item-stacked-label">
+                    <input name="day" placeholder="Expiry Day">
+                </div>
+                <div class="item item-input item-stacked-label">
+                    <input name="cvv" placeholder="CVV">
+                </div>
+            </ion-content>
+
+            <!-- Footer bar hack to get layout right -->
+            <ion-footer-bar class="high-footer bar-dark">
+            </ion-footer-bar>
+
+            <a keyboard-attach class="high-footer bar bar-footer" ui-sref="app.choose_credit_card">
+                <h1 class="title">Next</h1>
+            </a>
+        </form>
+    </div>
 </ion-view>

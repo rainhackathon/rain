@@ -25,6 +25,12 @@ angular.module('starter.controllers.tips', [])
                 }
             );
         }
+
+        $scope.blurb = function () {
+
+            var audio = new Audio('audio/takemymoney.mp3');
+            audio.play();
+        };
     })
 
     .controller('FlipTipCtrl', function ($scope, $state, $stateParams, TDCardDelegate, Transaction) {

@@ -154,6 +154,17 @@ angular.module('starter', ['ionic',
                 }
             })
 
+            // Withdraw
+            .state('app.withdraw', {
+                url: '/withdraw',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/withdraw/withdraw.html',
+                        controller: 'WithdrawCtrl'
+                    }
+                }
+            })
+
             // Scan Tip
             .state('app.scan_tip', {
                 url: '/scan_tip',
