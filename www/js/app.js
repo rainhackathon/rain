@@ -9,6 +9,9 @@ angular.module('starter', ['ionic',
     'starter.controllers',
     'starter.controllers.accounts',
     'starter.controllers.transactions',
+    'starter.controllers.menu',
+    'starter.controllers.tips',
+    'starter.controllers.deposits',
     'starter.services.accounts',
     'starter.services.transactions'])
 
@@ -51,25 +54,47 @@ angular.module('starter', ['ionic',
                 controller: 'LoginCtrl'
             })
 
-            // Home
-            .state('app.home', {
-                url: '/home',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/home/index.html',
-                        controller: 'TransactionsCtrl'
-                    }
-                }
-            })
-
+            // Menu
             .state('app', {
                 url: '/app',
                 abstract: true,
                 templateUrl: 'templates/menu.html',
-                controller: 'AppCtrl'
+                controller: 'MenuCtrl'
+            })
+
+            // Scan Tip
+            .state('app.scan_tip', {
+                url: '/scan_tip',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/tip/scan_tip.html',
+                        controller: 'ScanTipCtrl'
+                    }
+                }
+            })
+
+            // Create Tip
+            .state('app.create_tip', {
+                url: '/create_tip',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/tip/create_tip.html',
+                        controller: 'CreateTipCtrl'
+                    }
+                }
+            })
+
+            // Create Tip
+            .state('app.confirm_tip', {
+                url: '/confirm_tip',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/tip/confirm_tip.html',
+                        controller: 'ConfirmTipCtrl'
+                    }
+                }
             });
 
-
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/home');
+        $urlRouterProvider.otherwise('/app/scan_tip');
     });
