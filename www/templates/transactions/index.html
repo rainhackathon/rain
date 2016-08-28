@@ -1,0 +1,41 @@
+<ion-view view-title="">
+    <ion-content class="dashboard-home">
+        <div ng-if="items.length == 0">
+            <div class="card-container">
+                <div class="card">
+                    <div class="item item-body">
+                        <h2>Welcome to Rain</h2>
+
+                        <p>You have tips yet. Get tipping bud, no slacking here...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="items.length >= 0">
+            <ion-refresher on-refresh="refreshData()" spinner="none" on-pulling="none" pulling-icon="none"></ion-refresher>
+
+            <div class="list-transactions">
+                <div class="block">
+                    <div ng-repeat="item in items">
+                        <div class="item item-avatar item-icon-left">
+                            <i class="icon ion-ios-circle-outline"></i>
+
+                            <div class="align-left">
+                                <h2>{{ item.description }}</h2>
+                                <h4>{{ item.note }}</h4>
+                            </div>
+
+                            <div class="align-right">
+                                <h3>{{ item.currency.symbol }} {{ item.amount }}</h3>
+                                <h5 class="align-right">{{ item.created | date:'d MMM yyyy' }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ion-infinite-scroll on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+        </div>
+    </ion-content>
+</ion-view>

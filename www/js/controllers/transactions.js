@@ -4,39 +4,23 @@ angular.module('starter.controllers.transactions', [])
         'use strict';
 
         $scope.refreshData = function () {
-            var getBalance = Balance.get();
+            var getTransactions = Transaction.list();
 
-            getBalance.success(
+            getTransactions.success(
                 function (res) {
-                    $window.localStorage.setItem('myCurrency', JSON.stringify(res.data.currency));
-                    $scope.balance = Conversions.from_cents(res.data.balance);
-                    $scope.currency = res.data.currency;
+                    var items = [];
 
-                    var getTransactions = Transaction.list()
+                    for (var i = 0; i < res.data.results.length; i++) {
+                        res.data.results[i].id = i;
+                        res.data.results[i].amount = Conversions.from_cents(res.data.results[i].amount);
+                        items.push(res.data.results[i]);
+                    }
 
-                    getTransactions.success(
-                        function (res) {
-                            var items = [];
-
-                            for (var i = 0; i < res.data.results.length; i++) {
-                                res.data.results[i].id = i;
-                                res.data.results[i].amount = Conversions.from_cents(res.data.results[i].amount);
-                                items.push(res.data.results[i]);
-                            }
-
-                            $scope.items = items;
-                            $window.localStorage.setItem('myTransactions', JSON.stringify(items));
-                            $scope.nextUrl = res.data.next;
-                            $scope.$broadcast('scroll.refreshComplete');
-                        }
-                    );
-
-                }
-            );
-
-            getBalance.catch(function (error) {
-
-            });
+                    $scope.items = items;
+                    $window.localStorage.setItem('myTransactions', JSON.stringify(items));
+                    $scope.nextUrl = res.data.next;
+                    $scope.$broadcast('scroll.refreshComplete');
+                })
         };
 
         $scope.loadMore = function () {

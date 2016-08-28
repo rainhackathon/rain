@@ -5,7 +5,7 @@
             </ion-nav-back-button>
 
             <ion-nav-buttons side="left">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="refreshBalance()">
                 </button>
             </ion-nav-buttons>
             <ion-nav-buttons side="right">
@@ -23,22 +23,22 @@
         <ion-content>
             <ion-list class="app-side-menu-list">
                 <ion-item menu-close ui-sref="app.scan_tip">
-                    Get tipping
+                    Back to tipping
                 </ion-item>
                 <ion-item menu-close ui-sref="app.receive">
                     My address
+                </ion-item>
+                <ion-item menu-close ui-sref="app.transactions">
+                    My tips
                 </ion-item>
                 <ion-item menu-close ui-sref="app.choose_credit_card">
                     Add funds
                 </ion-item>
                 <ion-item menu-close ui-sref="app.withdraw">
-                    Withdraw funds
+                    Cashout
                 </ion-item>
-                <ion-item menu-close ui-sref="app.history">
-                    History
-                </ion-item>
-                <ion-item class="item-complex" menu-close ng-click="logout()">
-                    <a class="item-content"> Logout </a>
+                <ion-item class="item-complex">
+                    <a class="item-content" ng-click="logOut()"> Logout </a>
                 </ion-item>
             </ion-list>
         </ion-content>
